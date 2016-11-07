@@ -20,7 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		var_dump($_SERVER);
 		//$this->load->database();
 		//$query = $this->db->query('SELECT * FROM info');
 		//print(($query->result_array()));

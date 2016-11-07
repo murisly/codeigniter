@@ -249,7 +249,7 @@ if ( ! function_exists('get_config'))
 				require($file_path);
 			}
 
-			// Is the config file in the environment folder?
+			// Is the config file in the environment folder? 变量类型的设置会覆盖之前的
 			if (file_exists($file_path = APPPATH.'config/'.ENVIRONMENT.'/config.php'))
 			{
 				require($file_path);

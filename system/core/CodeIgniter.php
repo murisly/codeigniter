@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
  * ------------------------------------------------------
- *  Load the framework constants
+ *  Load the framework constants 常量
  * ------------------------------------------------------
  */
 	if (file_exists(APPPATH.'config/'.ENVIRONMENT.'/constants.php'))
