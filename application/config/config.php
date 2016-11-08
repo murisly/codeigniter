@@ -193,7 +193,7 @@ $config['directory_trigger'] = 'd';
 
 /*
 |--------------------------------------------------------------------------
-| Error Logging Threshold
+| Error Logging Threshold 控制日志的输出
 |--------------------------------------------------------------------------
 |
 | You can enable error logging by setting a threshold over zero. The
