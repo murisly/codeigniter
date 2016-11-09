@@ -164,7 +164,7 @@ switch (ENVIRONMENT)
 
 /*
  * -------------------------------------------------------------------
- *  CUSTOM CONFIG VALUES
+ *  CUSTOM CONFIG VALUES 使用的一些用户设定
  * -------------------------------------------------------------------
  *
  * The $assign_to_config array below will be passed dynamically to the

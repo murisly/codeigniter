@@ -64,7 +64,7 @@ class CI_Log {
 
 	/**
 	 * Level of logging
-	 *
+	 * 日志输出的级别
 	 * @var int
 	 */
 	protected $_threshold = 1;

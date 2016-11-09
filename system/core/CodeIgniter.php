@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
  * ------------------------------------------------------
- *  Load the framework constants 常量
+ *  Load the framework constants 固定常量和环境常量
  * ------------------------------------------------------
  */
 	if (file_exists(APPPATH.'config/'.ENVIRONMENT.'/constants.php'))
@@ -159,7 +159,7 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Should we use a Composer autoloader?
+ *  Should we use a Composer autoloader? composer库的自动加载
  * ------------------------------------------------------
  */
 	if ($composer_autoload = config_item('composer_autoload'))
@@ -347,7 +347,7 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Load the app controller and local controller
+ *  Load the app controller and local controller 加载控制器
  * ------------------------------------------------------
  *
  */
@@ -396,8 +396,8 @@ if ( ! is_php('5.4'))
  */
 
 	$e404 = FALSE;
-	$class = ucfirst($RTR->class);
-	$method = $RTR->method;
+	$class = ucfirst($RTR->class);  // 获得类名
+	$method = $RTR->method; // 获得方法名
 
 	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php'))
 	{
@@ -405,15 +405,15 @@ if ( ! is_php('5.4'))
 	}
 	else
 	{
-		require_once(APPPATH.'controllers/'.$RTR->directory.$class.'.php');
+		require_once(APPPATH.'controllers/'.$RTR->directory.$class.'.php');  // 加载类
 
 		if ( ! class_exists($class, FALSE) OR $method[0] === '_' OR method_exists('CI_Controller', $method))
 		{
 			$e404 = TRUE;
 		}
-		elseif (method_exists($class, '_remap'))
+		elseif (method_exists($class, '_remap'))  // 方法重映射
 		{
-			$params = array($method, array_slice($URI->rsegments, 2));
+			$params = array($method, array_slice($URI->rsegments, 2));  // 获得参数
 			$method = '_remap';
 		}
 		// WARNING: It appears that there are issues with is_callable() even in PHP 5.2!
@@ -479,19 +479,19 @@ if ( ! is_php('5.4'))
 
 	if ($method !== '_remap')
 	{
-		$params = array_slice($URI->rsegments, 2);
+		$params = array_slice($URI->rsegments, 2);  // 获得参数
 	}
 
 /*
  * ------------------------------------------------------
- *  Is there a "pre_controller" hook?
+ *  Is there a "pre_controller" hook?  方法执行前的函数
  * ------------------------------------------------------
  */
 	$EXT->call_hook('pre_controller');
 
 /*
  * ------------------------------------------------------
- *  Instantiate the requested controller
+ *  Instantiate the requested controller  构造方法对象
  * ------------------------------------------------------
  */
 	// Mark a start point so we can benchmark the controller
@@ -501,14 +501,14 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Is there a "post_controller_constructor" hook?
+ *  Is there a "post_controller_constructor" hook? 方法对象构造完后执行的钩子
  * ------------------------------------------------------
  */
 	$EXT->call_hook('post_controller_constructor');
 
 /*
  * ------------------------------------------------------
- *  Call the requested method
+ *  Call the requested method 执行方法
  * ------------------------------------------------------
  */
 	call_user_func_array(array(&$CI, $method), $params);

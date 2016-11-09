@@ -135,7 +135,7 @@ class CI_Loader {
 	 */
 	public function __construct()
 	{
-		$this->_ci_ob_level = ob_get_level();
+		$this->_ci_ob_level = ob_get_level();  // 缓冲区的控制级别
 		$this->_ci_classes =& is_loaded();
 
 		log_message('info', 'Loader Class Initialized');
@@ -1297,7 +1297,7 @@ class CI_Loader {
 	/**
 	 * CI Autoloader
 	 *
-	 * Loads component listed in the config/autoload.php file.
+	 * Loads component listed in the config/autoload.php file. 加载预先的模块
 	 *
 	 * @used-by	CI_Loader::initialize()
 	 * @return	void
