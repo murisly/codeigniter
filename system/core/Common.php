@@ -189,7 +189,7 @@ if ( ! function_exists('load_class'))
 		}
 
 		// Keep track of what we just loaded
-		is_loaded($class);
+		is_loaded($class);  // 添加到了是否加载列表
 
 		$_classes[$class] = isset($param)
 			? new $name($param)

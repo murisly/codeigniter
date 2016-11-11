@@ -75,7 +75,7 @@ class CI_Controller {
 			$this->$var =& load_class($class);
 		}
 
-		$this->load =& load_class('Loader', 'core');
+		$this->load =& load_class('Loader', 'core');  // 获得load模块
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
 	}

@@ -213,7 +213,7 @@ if ( ! is_php('5.4'))
  * depending on another class that uses it.
  *
  */
-	$CFG =& load_class('Config', 'core');
+	$CFG =& load_class('Config', 'core');  // 加载了config设置
 
 	// Do we have any manually set config items in the index.php file?
 	if (isset($assign_to_config) && is_array($assign_to_config))
@@ -497,7 +497,7 @@ if ( ! is_php('5.4'))
 	// Mark a start point so we can benchmark the controller
 	$BM->mark('controller_execution_time_( '.$class.' / '.$method.' )_start');
 
-	$CI = new $class();
+	$CI = new $class();  // 创建控制器实例
 
 /*
  * ------------------------------------------------------

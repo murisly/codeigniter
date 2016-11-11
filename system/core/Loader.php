@@ -1304,12 +1304,12 @@ class CI_Loader {
 	 */
 	protected function _ci_autoloader()
 	{
-		if (file_exists(APPPATH.'config/autoload.php'))
+		if (file_exists(APPPATH.'config/autoload.php'))  // 包含package
 		{
 			include(APPPATH.'config/autoload.php');
 		}
 
-		if (file_exists(APPPATH.'config/'.ENVIRONMENT.'/autoload.php'))
+		if (file_exists(APPPATH.'config/'.ENVIRONMENT.'/autoload.php'))  // 自定义的环境
 		{
 			include(APPPATH.'config/'.ENVIRONMENT.'/autoload.php');
 		}
@@ -1324,7 +1324,7 @@ class CI_Loader {
 		{
 			foreach ($autoload['packages'] as $package_path)
 			{
-				$this->add_package_path($package_path);
+				$this->add_package_path($package_path);  // 添加到各种路径里
 			}
 		}
 
@@ -1333,11 +1333,11 @@ class CI_Loader {
 		{
 			foreach ($autoload['config'] as $val)
 			{
-				$this->config($val);
+				$this->config($val);  // 加载各种设置文件
 			}
 		}
 
-		// Autoload helpers and languages
+		// Autoload helpers and languages 加载帮助，和语言
 		foreach (array('helper', 'language') as $type)
 		{
 			if (isset($autoload[$type]) && count($autoload[$type]) > 0)
@@ -1346,7 +1346,7 @@ class CI_Loader {
 			}
 		}
 
-		// Autoload drivers
+		// Autoload drivers 加载驱动文件
 		if (isset($autoload['drivers']))
 		{
 			$this->driver($autoload['drivers']);
@@ -1356,7 +1356,7 @@ class CI_Loader {
 		if (isset($autoload['libraries']) && count($autoload['libraries']) > 0)
 		{
 			// Load the database driver.
-			if (in_array('database', $autoload['libraries']))
+			if (in_array('database', $autoload['libraries'])) // 添加数据库支持
 			{
 				$this->database();
 				$autoload['libraries'] = array_diff($autoload['libraries'], array('database'));

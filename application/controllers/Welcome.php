@@ -23,6 +23,10 @@ class Welcome extends CI_Controller {
 		//$this->load->database();
 		//$query = $this->db->query('SELECT * FROM info');
 		//print(($query->result_array()));
+
+		$this->lang->load('setting');
+		echo $this->lang->line('menu_system_title');
+
 		$this->load->view('welcome_message');
 	}
 }
