@@ -52,3 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//在默认路由规则下添加以下两条
+$route['(en|cn)/(:any)'] = "$2";
+$route['en|cn'] = "welcome";

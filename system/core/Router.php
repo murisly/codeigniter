@@ -396,7 +396,7 @@ class CI_Router {
 			$key = str_replace(array(':any', ':num'), array('[^/]+', '[0-9]+'), $key);
 
 			// Does the RegEx match?
-			if (preg_match('#^'.$key.'$#', $uri, $matches))
+			if (preg_match('#^'.$key.'$#', $uri, $matches))   // 这里使用## 开头和结尾，中间包含的就不需要转义
 			{
 				// Are we using callbacks to process back-references?
 				if ( ! is_string($val) && is_callable($val))
