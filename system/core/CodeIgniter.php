@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
  * ------------------------------------------------------
- *  Load the global functions
+ *  Load the global functions 各种基本函数
  * ------------------------------------------------------
  */
 	require_once(BASEPATH.'core/Common.php');
@@ -191,10 +191,10 @@ if ( ! is_php('5.4'))
 
 /*
  * ------------------------------------------------------
- *  Instantiate the hooks class
+ *  Instantiate the hooks class 在系统各个节点设置的hook函数(回调)
  * ------------------------------------------------------
  */
-	$EXT =& load_class('Hooks', 'core');
+	$EXT =& load_class('Hooks', 'core');  // 加载了hooks模块
 
 /*
  * ------------------------------------------------------
@@ -220,7 +220,7 @@ if ( ! is_php('5.4'))
 	{
 		foreach ($assign_to_config as $key => $value)
 		{
-			$CFG->set_item($key, $value);
+			$CFG->set_item($key, $value); // 将值放到对象里
 		}
 	}
 

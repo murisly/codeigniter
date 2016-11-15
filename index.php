@@ -129,7 +129,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$view_folder = '';  // 移动需要绝对路径
+	$view_folder = '';  // 移动view的位置，需要绝对路径
 
 
 /*

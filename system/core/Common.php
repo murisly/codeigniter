@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 // ------------------------------------------------------------------------
-
+// 判断当前的版本是否比参数提供的大
 if ( ! function_exists('is_php'))
 {
 	/**
